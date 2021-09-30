@@ -8,7 +8,6 @@ public class PlayerDamage : PlayerHp
     {
         if (collision.gameObject.tag == "Player")
         {
-           
             DicreaseHp();
             CheckHp();
             Debug.Log("error");
