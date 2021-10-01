@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletManager : MonoBehaviour
 {
-    private bool IsMoveBullet = false;
+    
     [SerializeField]
     private GameObject BulletPrefab;
 
