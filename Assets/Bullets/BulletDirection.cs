@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class BulletDirection : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    MouseMoveArms moveArms = new MouseMoveArms();
+    Rigidbody rigidbody;
+
+    private void Start()
     {
-        
+        rigidbody = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.back * 5 * Time.deltaTime);
+        rigidbody.AddForce(Vector3.forward * Time.deltaTime, ForceMode.Force);
     }
 }

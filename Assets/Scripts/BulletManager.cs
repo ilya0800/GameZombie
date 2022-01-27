@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class BulletManager : MonoBehaviour
 {
-    
+    MouseMoveArms moveArms = new MouseMoveArms();
     [SerializeField]
     private GameObject BulletPrefab;
+    //[SerializeField]
+    //private GameObject BulletStartPositon;
 
     void Update()
     {
@@ -16,9 +18,8 @@ public class BulletManager : MonoBehaviour
 
     public void CreateBullet()
     {
+        //BulletPrefab.transform.localEulerAngles = new Vector3(moveArms.VectorNowPosition.x, moveArms.VectorNowPosition.y);
         Instantiate(BulletPrefab);
-        BulletPrefab.transform.position = transform.position;
-
     }
 
     //IEnumerator OffBullet()

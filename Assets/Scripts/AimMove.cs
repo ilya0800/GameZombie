@@ -6,8 +6,8 @@ using UnityEngine.EventSystems;
 
 public class AimMove : MonoBehaviour, IDragHandler, IEventSystemHandler, IPointerDownHandler, IPointerUpHandler
 {
-    Vector2 origanal;
-    Vector2 direcation;
+    Vector2 origanal = Vector2.zero;
+    Vector2 direcation = Vector2.zero;
     
     
     private void Awake()
@@ -31,7 +31,7 @@ public class AimMove : MonoBehaviour, IDragHandler, IEventSystemHandler, IPointe
 
     public void OnPointerUp(PointerEventData eventData)
     {
-                //direcation = Vector2.zero;
+        direcation = Vector2.zero;
     }
 
     public Vector2 GetDirection()

@@ -2,26 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDamage : PlayerHp
+public class PlayerDamage : MonoBehaviour
 {
+    HpZombie hpZombie = new HpZombie();
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Enemy")
         {
-            DicreaseHp();
-            CheckHp();
-            Debug.Log("error");
+            gameObject.SetActive(false);
+            hpZombie.DicreaseHp();
+            hpZombie.CheckHp();
+            Destroy(gameObject);
+          
         }
-
     }
     
-    private void Start()
-    {
-        Debug.Log("start");
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -4,24 +4,29 @@ using UnityEngine;
 
 public class ControllerArm : MonoBehaviour
 {
-    [SerializeField] public Transform aim;
-    private Vector3 look;
-    private int sensetiv = 10;
-    Rigidbody rigidbody;
-    //private AimMove MoveArm;
+    [SerializeField] private Transform aim;
+    [SerializeField] private Transform helpController;
+    [SerializeField] int sensetiv = 10;
+
+    private Rigidbody rigidbody;
+    
 
     void Start()
-    {
+    {  
         rigidbody = GetComponent<Rigidbody>();
-      //  MoveArm = GetComponent<AimMove>();      
+        //MoveArm = GetComponent<AimMove>();
+        //aim = GetComponent<Transform>();
+       // transform.position = helpController.transform.position;
     }
 
     void Update()
     {
+        //aim.transform.position = new Vector3(aim.position.x, aim.position.y);
         //Vector2 ControllerArms = MoveArm.GetDirection();
-        look = Vector3.Lerp(look, aim.transform.position, sensetiv * Time.deltaTime);
-        gameObject.transform.LookAt(aim.transform);
-        
-        
+        // gameObject.transform.rotation = Quaternion.Euler(aim.localEulerAngles); 
+                        
+        gameObject.transform.LookAt(helpController, transform.localPosition);
+        //GetComponent<Rigidbody>().isKinematic = false;
+
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Aim : MonoBehaviour
 {
     //Rigidbody rigidbody;
-    public float Speed = 20; 
+    [SerializeField] private float Speed = 20; 
     public AimMove touchPad;
 
     void Start()
