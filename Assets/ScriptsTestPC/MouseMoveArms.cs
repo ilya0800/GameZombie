@@ -5,31 +5,36 @@ using UnityEngine.EventSystems;
 
 public class MouseMoveArms : MonoBehaviour, IEventSystemHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
-    Vector3 Direction;
-    Vector3 CyrrDorection;
-    Vector3 Origin;
-    Vector3 RawDirection;
-    bool Drag = false;
+    Vector2 Direction = Vector2.zero;
+    [SerializeReference]float speed;
+    Vector2 DirectionEnd;
+    Vector2 DirectionCyrr = Vector2.zero;
+    PointerEventData DirectionStart;
+    bool IsMove => DirectionStart != null;
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Origin = Vector3.zero;
-        
-    }
+        DirectionStart = eventData;
 
+        //DirectionStart = eventData.position;
+        //DirectionStart = DirectionEnd;
+        //Direction = DirectionEnd;
+    }
     public void OnDrag(PointerEventData eventData)
     {
-        Drag = true;
-        CyrrDorection = eventData.position;
-        RawDirection = CyrrDorection - Origin;
-        Direction = RawDirection.normalized;
+        DirectionCyrr = eventData.position;
+        DirectionEnd = DirectionStart.position - DirectionCyrr;
+        
+        Direction = DirectionEnd;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Drag = false;
+        DirectionStart = null;
+
+        //DirectionEnd = Direction;
     }
-    
+
     public Vector3 GetDirection()
     {
         return Direction;

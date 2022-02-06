@@ -17,7 +17,6 @@ public class AimMove : MonoBehaviour, IDragHandler, IEventSystemHandler, IPointe
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        
         origanal = eventData.position;
     }
 
@@ -39,3 +38,4 @@ public class AimMove : MonoBehaviour, IDragHandler, IEventSystemHandler, IPointe
            return direcation;
     }  
 }
+ 
